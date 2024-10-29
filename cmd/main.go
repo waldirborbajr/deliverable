@@ -44,7 +44,15 @@ func connectDB() {
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       task TEXT,
       done TEXT
-  );`
+    );
+
+    CREATE TABLE IF NOT EXISTS factory (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      name TEXT,
+      active BOOLEAN
+    );
+
+  `
 
 	// Execute the SQL statement to create the table
 	_, err = db.Exec(createTable)
